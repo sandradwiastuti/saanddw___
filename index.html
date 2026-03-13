@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<meta property="og:title" content="Sandra Dwi Astuti | Portfolio">
+<meta property="og:description" content="Computer Science Student at University of Lampung">
+<meta property="og:image" content="ini.jpg">
+<meta property="og:url" content="https://sandradwiastuti.github.io/saanddw___/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sandra Dwi Astuti</title>
@@ -8,7 +12,71 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <style>
+/* Custom Scrollbar untuk tampilan lebih estetik */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #7796a5;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5b899b;
+}
+
+/* ===== MODERN RESPONSIVE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  /* Global Spacing */
+  section { padding: 60px 15px 30px; }
+  
+  /* Navbar */
+  .navbar-nav { text-align: center; padding: 1rem 0; }
+
+  /* HOME - Lebih Compact */
+  .foto-container { width: 140px; height: 180px; }
+  #home h1 { font-size: 1.8rem; }
+  #home p { font-size: 0.95rem; line-height: 1.5; }
+
+  /* ABOUT - Teks di Atas, Foto di Bawah */
+  #about .row {
+    display: flex;
+    flex-direction: column; /* Normal stack: teks dulu baru foto */
+  }
+  #about .col-md-6:first-child { order: 1; } /* Teks tetap pertama */
+  #about .col-md-6:last-child { order: 2; margin-top: 20px; } /* Foto jadi kedua */
+  
+  .foto-oval { 
+    width: 200px; 
+    height: 250px; 
+    border-radius: 30px; /* Lebih modern di mobile */
+  }
+
+  /* EXPERIENCE - Stack Vertical & Center */
+  .experience-card, 
+  .experience-card.reverse {
+    flex-direction: column !important;
+    padding: 20px;
+    text-align: center;
+  }
+  .experience-img {
+    width: 140px; 
+    height: 140px;
+    margin-bottom: 10px;
+  }
+
+  /* CARDS (Projects & Skills) */
+  .card-img-top { height: 160px; }
+  .card-title { font-size: 1.1rem; }
+  
+  /* FOOTER */
+  footer .social-icons { gap: 12px; }
+  footer a img { width: 38px; height: 38px; }
+}
 
 /* HOME SECTION IMPROVEMENT */
 #home h1{
