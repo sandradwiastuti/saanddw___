@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandra Dwi Astuti</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* HOME SECTION IMPROVEMENT */
+#home h1{
+font-size:2.5rem;
+font-weight:700;
+letter-spacing:1px;
+margin-top:30px; /* jarak dari foto */
+}
+
+#home p{
+font-size:1.1rem;
+max-width:700px;
+margin:15px auto 25px auto;
+line-height:1.7;
+font-weight:600;
+}
+
+#home .btn-custom{
+font-size:1rem;
+padding:12px 28px;
+border-radius:30px;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+html{scroll-behavior:smooth;}
+body{
+display:flex;
+flex-direction:column;
+min-height:100vh;
+font-family:'Quicksand',sans-serif;
+
+background:
+radial-gradient(circle at 15% 20%, rgba(54, 111, 211, 0.397) 0%, transparent 45%),
+radial-gradient(circle at 85% 80%, rgba(13, 55, 146, 0.596) 0%, transparent 45%),
+radial-gradient(circle at 50% -10%, rgba(168, 197, 228, 0.25) 0%, transparent 50%),
+linear-gradient(135deg, #eaf4ff, #d6e9ff, #f2f8ff);
+
+background-attachment: fixed;
+color:#5b899b;
+margin:0;
+opacity:0;
+animation:fadeIn 1s ease-in-out forwards;
+}
+@keyframes fadeIn{to{opacity:1;}}
+
+main{flex:1;padding-top:80px;}
+section{padding-top:100px;padding-bottom:60px;}
+
+.navbar-brand:hover{
+color:#d1ffb0 !important;
+text-shadow:1px 1px 5px rgba(255,255,255,0.5);
+}
+.navbar-nav .nav-link{
+color:#ffffff !important;
+font-weight:600;
+position:relative;
+transition:color 0.3s ease;
+}
+.navbar-nav .nav-link::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+bottom:-4px;
+left:0;
+background-color:#fff;
+transition:0.3s ease;
+}
+.navbar-nav .nav-link:hover{color:#5281aa !important;}
+.navbar-nav .nav-link:hover::after{width:100%;}
+
+footer{
+width:100%;
+background:transparent;
+text-align:center;
+padding:20px 0;
+}
+footer .social-icons{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-bottom:10px;
+}
+footer a img{
+width:45px;
+height:45px;
+padding:10px;
+border-radius:50%;
+transition:all 0.4s ease;
+box-shadow:0 0 8px rgba(226,223,223,0.897);
+}
+footer a:nth-child(1) img{background-color:#0077b5;} /* LinkedIn */
+footer a:nth-child(2) img{background-color:#e1306c;} /* Instagram */
+footer a:nth-child(3) img{background-color:#ff0000;} /* YouTube */
+footer a:nth-child(4) img{background-color:#ccfaec;} /* GitHub abu abu */
+footer a:nth-child(5) img{background-color:#000000;} /* TikTok hitam */
+footer a img:hover{
+filter:brightness(1.2);
+transform:scale(1.2);
+box-shadow:0 0 12px rgb(255,255,255);
+}
+footer p{color:#000;font-size:0.85rem;}
+
+.foto-container{
+position:relative;
+width:180px;
+height:220px;
+margin:0 auto;
+}
+.foto-profile{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%/40%;
+border:4px solid #325268;
+box-shadow:0 6px 18px rgba(255,255,255,0.904);
+position:relative;
+z-index:2;
+}
+.foto-container::before{
+content:'';
+position:absolute;
+top:-10px;left:-10px;right:-10px;bottom:-10px;
+border-radius:50%/40%;
+background:conic-gradient(from 0deg,rgb(167, 167, 236) 0%,rgba(91, 91, 211, 0.425) 25%,transparent 25%,transparent 50%,rgba(87, 87, 221, 0.548) 50%,rgba(95, 95, 231, 0.438) 75%,transparent 75%);
+animation:spin 2.5s linear infinite;
+z-index:1;
+filter:blur(5px);
+}
+@keyframes spin{0%{transform:rotate(0);}100%{transform:rotate(360deg);}}
+
+.foto-oval{
+width:280px;height:350px;
+object-fit:cover;
+border-radius:50%/40%;
+display:block;margin:0 auto;
+box-shadow:0 4px 8px rgba(61,138,182,0.61);
+}
+
+.experience-group{
+display:flex;
+flex-direction:column;
+gap:25px;
+margin-top:40px;
+}
+.experience-item{
+background-color:#7796a5;
+color:#fff;
+padding:18px 22px;
+border-radius:15px;
+box-shadow:0 6px 12px rgba(0,0,0,0.15);
+font-size:1.2rem;
+font-weight:600;
+text-align:center;
+}
+.foto-tengah{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+.experience-img{
+width:120px;height:120px;
+object-fit:cover;
+border-radius:12px;
+border:3px solid #3b6c85;
+transition:0.3s;
+}
+.experience-img:hover{
+transform:scale(1.05);
+box-shadow:0 0 12px rgba(86,126,160,0.842);
+}
+
+.card{
+border:none;
+background-color:#dfffe2;
+transition:0.3s;
+border-radius:15px;
+height:100%;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 12px 20px rgba(0,0,0,0.2);
+}
+.card-img-top{
+height:200px;
+object-fit:cover;
+border-radius:15px 15px 0 0;
+transition:0.4s;
+}
+.card:hover .card-img-top{transform:scale(1.05);}
+
+.btn-custom{
+font-weight:600;
+background-color:#487e97;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+transition:0.3s;
+}
+.btn-custom:hover{
+background-color:#3a6c84;
+transform:translateY(-2px);
+}
+
+.btn-custom-kirim{
+background-color:#7796a5;
+color:white;
+font-weight:600;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+transition:0.3s;
+}
+.btn-custom-kirim:hover{
+background-color:#bccbd3;
+color:#7796a5;
+transform:translateY(-2px);
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#7796a5;">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#home">Sandraa🌼</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#home">Home Page</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+<li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Project</a></li>
+<li class="nav-item"><a class="nav-link" href="#skills">Skill</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="container text-center">
+<div class="foto-container">
+<img src="hii.jpg" class="foto-profile mb-4">
+</div>
+<h1 class="fw-bold" style="color:#423e3e;">Hi, I'm Sandra Dwi Astuti</h1>
+<p style="color:#423e3e;">
+Computer Science student at the University of Lampung who is passionate about technology, innovation, and empowering others through digital knowledge and community impact.
+</p>
+<a href="#about" class="btn-custom">Learn More About Me</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="container">
+<div class="row align-items-center">
+<div class="col-md-6 text-start">
+<h2 class="fw-bold" style="color:#423e3e;">About Me</h2>
+<p style="color:#423e3e;">
+Hello! I'm Sandra Dwi Astuti, a Computer Science student at the University of Lampung with strong interests in Artificial Intelligence and Web Development.
+Formerly active in academic organizations, I am now focusing on exploring new challenges and expanding my technical skills.
+Passionate about problem-solving, logical thinking, and continuous growth, I strive to push myself beyond comfort zones and create meaningful impact through technology.
+</p>
+
+<button class="btn btn-outline-primary btn-sm mb-2" data-bs-toggle="collapse" data-bs-target="#detailInfo">
+Click for Personal Details
+</button>
+
+<div class="collapse" id="detailInfo">
+<div class="card card-body mt-2">
+<ul class="list-unstyled mb-0 text-dark">
+<li><strong>Name:</strong> Sandra Dwi Astuti</li>
+<li><strong>Address:</strong> Lampung Tengah</li>
+<li><strong>Email:</strong> sandradwiastuti17@email.com</li>
+<li><strong>Phone Number:</strong> 0819-1926-1577</li>
+<li><strong>Hobby:</strong> Designing, Singing, and Creative web exploration</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-md-6">
+<img src="foto.jpg" class="foto-oval">
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="margin-top:80px;margin-bottom:80px;">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+#experience{
+font-family:'Poppins', sans-serif;
+max-width:1000px;
+margin:auto;
+}
+
+.experience-title{
+text-align:center;
+font-size:38px;
+font-weight:700;
+margin-bottom:50px;
+color:#423e3e;
+}
+
+/* CARD */
+
+.experience-card{
+display:flex;
+align-items:center;
+gap:30px;
+background:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:30px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* gambar */
+
+.experience-img{
+width:170px;
+height:170px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* teks */
+
+.experience-text h4{
+font-size:20px;
+font-weight:600;
+margin-bottom:5px;
+}
+
+.experience-text span{
+font-size:14px;
+color:#777;
+display:block;
+margin-bottom:8px;
+}
+
+.experience-text p{
+font-size:15px;
+color:#555;
+line-height:1.5;
+}
+
+/* gambar kanan kiri */
+
+.reverse{
+flex-direction:row-reverse;
+}
+
+</style>
+
+
+<h2 class="experience-title">Experience</h2>
+
+<div class="experience-card reverse">
+
+<img src="AI.jpeg" class="experience-img">
+
+<div class="experience-text">
+<h4>Coordinator Assistant Lecturer – Artificial Intelligence</h4>
+<span>Computer Science | University of Lampung | 2026 – Present</span>
+<p>
+Assisting the lecturer in teaching Artificial Intelligence courses,
+guiding students in understanding AI concepts, problem solving,
+and supporting learning activities during classes and discussions.
+</p>
+</div>
+
+</div>
+
+
+<div class="experience-card">
+
+<img src="all.jpeg" class="experience-img">
+<img src="presentasi.jpeg" class="experience-img">
+
+<div class="experience-text">
+<h4>Web Developer Intern – LampungIn Project</h4>
+<span>Department of Communication and Informatics (Kominfo) | 40-Day Internship Program</span>
+<p>
+Contributed to the development of the LampungIn application, a large-scale digital platform
+designed to support public services and provide information for the community of Lampung.
+Responsible for redesigning and developing the main web portal interface of LampungIn,
+introducing innovative improvements that enhanced usability and user experience.
+The project received positive feedback and appreciation from the Kominfo team.
+</p>
+</div>
+
+</div>
+
+<div class="experience-card reverse">
+
+<img src="lpj.jpeg" class="experience-img">
+<img src="sekre.jpeg" class="experience-img">
+
+<div class="experience-text">
+<h4>Secretary of Scientific Division</h4>
+<span>Himpunan Mahasiswa Ilmu Komputer | 2025</span>
+<p>
+Served as the Secretary of the Scientific Division in Himpunan Mahasiswa Ilmu Komputer.
+Responsible for managing administrative tasks, documenting activities, preparing reports,
+and supporting the organization of academic and scientific programs for students.
+</p>
+</div>
+
+</div>
+
+
+<div class="experience-card">
+
+<img src="ps.jpeg" class="experience-img">
+<img src="ps2.jpeg" class="experience-img">
+
+<div class="experience-text">
+<h4>Steering Committee – Project Showcase Event</h4>
+<span>Computer Science | University of Lampung | June & November 2025</span>
+<p>
+Served as a Steering Committee member in organizing the Project Showcase event,
+held twice in June and November. Successfully coordinated the event with the
+Scientific Division team, providing a platform for lecturers and students to
+present their projects proudly. The exhibition attracted many visitors and
+ran smoothly with positive engagement from participants.
+</p>
+</div>
+
+</div>
+
+
+<div class="experience-card reverse">
+
+<img src="matdis.jpeg" class="experience-img">
+<img src="sertmat.jpeg" class="experience-img">
+
+<div class="experience-text">
+<h4>Assistant Lecturer – Discrete Mathematics</h4>
+<span>Computer Science | University of Lampung | 2025</span>
+<p>
+Assisted the lecturer in teaching Discrete Mathematics courses by supporting
+class activities, guiding students in understanding fundamental concepts such as
+logic, sets, relations, and problem solving, and facilitating discussions to help
+students strengthen their analytical thinking skills.
+</p>
+</div>
+
+</div>
+
+
+<div class="experience-card">
+
+<img src="lo.jpg" class="experience-img">
+<img src="sertlogic.jpeg" class="experience-img">
+
+<div class="experience-text">
+<h4>Assistant Lecturer – Logic</h4>
+<span>Computer Science | University of Lampung | 2024</span>
+<p>
+Supported the lecturer in delivering Logic courses by assisting with class activities,
+guiding students in understanding fundamental concepts such as logical reasoning,
+truth tables, propositional logic, and problem-solving techniques. Facilitated
+discussions, helped clarify complex topics, and provided academic support to
+strengthen students’ analytical and critical thinking skills.
+</p>
+</div>
+
+</div>
+
+
+<div class="experience-card reverse">
+
+<img src="mc.jpg" class="experience-img">
+
+<div class="experience-text">
+<h4>Master of Ceremony – CSS Event</h4>
+<span>Himpunan Mahasiswa Ilmu Komputer | 2024</span>
+<p>
+Served as the Master of Ceremony for the CSS event, responsible for leading
+and managing the entire flow of the program. Ensured smooth event coordination,
+maintained audience engagement, and delivered clear communication between
+speakers, organizers, and participants to create an interactive and well-organized event experience.
+</p>
+</div>
+
+</div>
+
+
+<div class="experience-card">
+
+<img src="keil.jpg" class="experience-img">
+
+<div class="experience-text">
+<h4>Member of Scientific Division</h4>
+<span>Himpunan Mahasiswa Ilmu Komputer | 2024</span>
+<p>
+Actively contributed as a member of the Scientific Division by supporting the
+organization of academic and knowledge-based programs for computer science students.
+Collaborated with the team in preparing educational activities, assisting in the
+implementation of scientific events, and promoting an environment that encourages
+learning, research, and intellectual development among students.
+</p>
+</div>
+
+</div>
+
+<div class="experience-card reverse">
+
+<img src="lct.jpg" class="experience-img">
+<img src="prj.jpeg" class="experience-img">
+
+<div class="experience-text">
+<h4>Volunteer – PRJ Event</h4>
+<span>Himpunan Mahasiswa Ilmu Komputer | 2023</span>
+<p>
+Contributed as a volunteer in organizing the PRJ event by supporting event
+preparation, assisting with coordination between committee members, and helping
+ensure the activities ran smoothly. Worked collaboratively with the organizing
+team to manage participants and create a well-organized and engaging event experience.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PORTFOLIO & SOFT SKILLS -->
+<section id="projects" class="container py-5">
+<h2 class="text-center fw-bold" style="color:#423e3e; margin-bottom:50px;">Project</h2>
+
+<div class="row g-4">
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="lampungin.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">LampungIn Web Portal</h5>
+<p class="card-text">
+Developed and redesigned the main web portal interface of the LampungIn platform
+using Laravel (PHP). The project focused on improving the usability and layout
+of the homepage to provide clearer information access for the community and
+enhance the overall user experience of the platform.
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="bask.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">BasketGO Web Application</h5>
+<p class="card-text">
+Developed a basketball management web application using Laravel (PHP).
+The system provides features for managing basketball activities, schedules,
+and team information through a structured and user-friendly web interface.
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="figma.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">UI/UX Design</h5>
+<p class="card-text">
+Designed user-centered interface concepts by creating wireframes and interactive
+prototypes for web and mobile applications. Utilized design tools such as Figma
+to structure layouts, improve usability, and develop visually appealing interfaces
+that enhance the overall user experience.
+</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="sql.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Database & SQL</h5>
+<p class="card-text">
+Designed and implemented relational database structures for web-based systems.
+Experienced in creating ERD diagrams, defining relationships between entities,
+and managing data using PostgreSQL to ensure efficient and well-structured data storage.
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="gith.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Version Control (Git & GitHub)</h5>
+<p class="card-text">
+Managed project source code using Git and GitHub for version control and
+collaborative development. Experienced in creating repositories, tracking
+changes, and coordinating team contributions through structured workflows.
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="cisco.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Network Simulation (Cisco Packet Tracer)</h5>
+<p class="card-text">
+Designed and simulated computer network topologies using Cisco Packet Tracer.
+Implemented routing, switching, and communication between multiple subnets
+to understand network infrastructure and real-world data transmission scenarios.
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SOFT SKILLS -->
+<section id="skills" class="container py-5">
+<h2 class="text-center fw-bold" style="color:#423e3e; margin-bottom:50px;">Soft Skills</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="tim.jpeg" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Team Collaboration</h5>
+<p class="card-text">Experienced in active collaboration on joint projects and effective communication within a team</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="lead.jpeg" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Leadership</h5>
+<p class="card-text">
+Able to lead and coordinate teams in academic and organizational activities,
+including managing responsibilities, guiding members, and ensuring tasks
+are completed effectively to achieve common goals.
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="pspeak.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Public Speaking</h5>
+<p class="card-text">Have good communication skills, including being an MC for campus events and conveying ideas confidently in public</p>
+</div>
+</div>
+</div>
+
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="time.jpg" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Time Management</h5>
+<p class="card-text">Ability to manage time between lectures, organizations, and personal projects</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="probs.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Problem Solving</h5>
+<p class="card-text">
+Skilled in analyzing problems and finding effective solutions during
+technical projects and academic activities. Able to think critically
+and approach challenges with structured and logical reasoning.
+</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card h-100">
+<img src="adapp.png" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Adaptability</h5>
+<p class="card-text">
+Quickly adapt to new environments, technologies, and responsibilities.
+Comfortable learning new tools and methods to improve performance
+in both academic projects and collaborative team environments.
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<section id="technical-skills" class="container py-5">
+
+<h2 class="text-center fw-bold" style="color:#423e3e; margin-bottom:50px;">Technical Skills</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card h-100 p-4">
+<h5 class="card-title">Frontend Development</h5>
+<p class="card-text">
+Able to build responsive web interfaces using HTML, CSS, and Bootstrap.
+Comfortable creating structured layouts and simple interactive elements
+for web applications.
+</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card h-100 p-4">
+<h5 class="card-title">Backend Development</h5>
+<p class="card-text">
+Experience developing web features using PHP and Laravel framework.
+Able to connect frontend interfaces with backend logic to support
+basic application functionality.
+</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card h-100 p-4">
+<h5 class="card-title">Database Basics</h5>
+<p class="card-text">
+Basic understanding of relational databases and SQL queries.
+Have experience working with PostgreSQL and designing simple
+database structures for web applications.
+</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card h-100 p-4">
+<h5 class="card-title">UI/UX Design</h5>
+<p class="card-text">
+Create wireframes and interface layouts using Figma.
+Focus on designing simple, clean, and user-friendly
+interfaces for web and mobile applications.
+</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card h-100 p-4">
+<h5 class="card-title">Version Control</h5>
+<p class="card-text">
+Use Git and GitHub to manage project files, track changes,
+and collaborate with team members during development projects.
+</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card h-100 p-4">
+<h5 class="card-title">Administrative & Documentation</h5>
+<p class="card-text">
+Comfortable managing documents, organizing information,
+and preparing simple reports using tools such as
+Microsoft Office and Google Workspace.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="container">
+<h2 class="text-center fw-bold" style="color:#423e3e; margin-bottom:10px;">Contact ME</h2>
+<h6 class="text-center fw-bold" style="color:#423e3e;  margin-bottom:30px;">
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=sandradwiastuti17@gmail.com" target="_blank" style="text-decoration:none;color:inherit;">
+sandradwiastuti17@gmail.com
+</a>
+</h6>
+
+<form action="https://formspree.io/f/mzzrpjag" method="POST">
+<div class="mb-3">
+<input type="text" class="form-control" name="name" placeholder="Enter Your Name" required>
+</div>
+<div class="mb-3">
+<input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
+</div>
+<div class="mb-3">
+<textarea class="form-control" name="message" rows="5" placeholder="Write Your Message Here..." required></textarea>
+</div>
+<button type="submit" class="btn btn-custom-kirim">Submit</button>
+</form>
+</section>
+
+<footer>
+<div class="social-icons">
+
+<a href="https://www.linkedin.com/in/sandra-dwi-astuti-5b29372ab/?originalSubdomain=id" target="_blank" class="social linkedin">
+<img src="linkedin.png">
+</a>
+
+<a href="https://www.instagram.com/sndrradw_/" target="_blank" class="social instagram">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+<a href="https://www.youtube.com/@sandradwiastuti" target="_blank" class="social youtube">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+</a>
+
+<a href="https://github.com/sandradwiastuti" target="_blank" class="social github">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
+</a>
+
+<a href="https://www.tiktok.com/@seursee" target="_blank" class="social tiktok">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+</a>
+
+</div>
+
+<p>&copy; 2026 Sandra Dwi Astuti</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
